@@ -1,4 +1,3 @@
-import json
 import random
 import math
 from tweet_fighter import TweetFighter

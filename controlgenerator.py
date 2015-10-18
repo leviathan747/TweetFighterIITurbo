@@ -153,7 +153,7 @@ class ControlGeneratorAPI:
         return bucketized_proportions
             
 
-tweet_fighter = TweetFighter('F6krcMh2bSdFEWiwCO5BFoNnO', 'myQxPYEA3MHEbl3S7CfmZqg9kuMrISYeGJsmYToRK6LSKiejNP', 'levi@roxsoftware.com')
-results = tweet_fighter.tweet_fight("Cubs", "Mets")
-generator = ControlGeneratorAPI(results[0], results[1])
-print generator.generate_attack_sequences()
+#tweet_fighter = TweetFighter('F6krcMh2bSdFEWiwCO5BFoNnO', 'myQxPYEA3MHEbl3S7CfmZqg9kuMrISYeGJsmYToRK6LSKiejNP', 'levi@roxsoftware.com')
+#results = tweet_fighter.tweet_fight("Cubs", "Mets")
+#generator = ControlGeneratorAPI(results[0], results[1])
+#print generator.generate_attack_sequences()

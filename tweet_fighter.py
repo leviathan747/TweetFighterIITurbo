@@ -1,6 +1,12 @@
 from twython import Twython
 from sentiment140 import Sentiment140API
 
+CONSUMER_KEY = "IMhoOLI5hEv2UU1xvskOFMiPy"
+CONSUMER_SECRET = "4QcaLsu04V3ZvaVDtaTbmUqYkKI0B9VuBCoiY1HjgNNuEh54kB"
+ACCESS_KEY = "3982575449-b2oc18sUhI5emOThl2dxqv3whBPzNkbRyMeIGFy"
+ACCESS_SECRET = "XngnYbt98UR5eK0B7y1TRYFebTdkoM8HvlLqMExu2E7hE"
+SENT_APP_ID = "levi@roxsoftware.com"
+
 class TweetFighter:
 
     APP_KEY = None
@@ -61,7 +67,7 @@ class TweetFighter:
                 results    = self.twitter_api.search(q=kw,count='100')
             else:
                 # After the first call we should have max_id from result of previous call. Pass it in query.
-                results    = self.twitter_api.search(q=kw,include_entities='true',max_id=next_max_id)
+                results    = self.twitter_api.search(q=kw,count ='100', include_entities='true',max_id=next_max_id)
 
             # STEP 2: Save the returned tweets
             for result in results['statuses']:
@@ -112,5 +118,5 @@ class TweetFighter:
         return [tweets1, tweets2]
 
 if __name__ == '__main__':
-    tweet_fighter = TweetFighter('app_id', 'app_secret', 'sent140_app_id')
+    tweet_fighter = TweetFighter(CONSUMER_KEY, CONSUMER_SECRET, SENT_APP_ID)
     results = tweet_fighter.tweet_fight('cubs', 'mets')

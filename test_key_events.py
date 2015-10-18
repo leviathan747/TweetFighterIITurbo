@@ -1,5 +1,7 @@
 import ctypes
 import time
+import os
+import subprocess
 
 SendInput = ctypes.windll.user32.SendInput
 
@@ -53,11 +55,35 @@ def ReleaseKey(hexKeyCode):
 
 if __name__ =="__main__":
 
+    os.system("cmd snes9x.exe")
+    time.sleep(3)
+    t = 2
+
+    PressKey(0x70)  # F1
+    ReleaseKey(0x70)
+    time.sleep(t)
+    PressKey(0xDC)  # |
+    ReleaseKey(0xDC)
+    time.sleep(t)
+    PressKey(0x28)  # Down
+    ReleaseKey(0x28)
+    time.sleep(t)
+    PressKey(0x0D)  # Enter
+    ReleaseKey(0x0D)
+    time.sleep(t)
+    PressKey(0x1B)  # Esc
+    ReleaseKey(0x1B)
+    time.sleep(t)
     PressKey(0x41)  # A
-    ReleaseKey(0x41)  # A
-    PressKey(0x42)  # B
-    ReleaseKey(0x42)  # B
-    PressKey(0x43)  # C
-    ReleaseKey(0x43)  # C
-    PressKey(0x44)  # D
-    ReleaseKey(0x44)  # D
+    ReleaseKey(0x41)
+    time.sleep(t)
+    PressKey(0x0D)  # Enter
+    ReleaseKey(0x0D)
+    time.sleep(t)
+    PressKey(0x0D)  # Enter
+    ReleaseKey(0x0D)
+    time.sleep(t)
+    PressKey(0x0D)  # Enter
+    ReleaseKey(0x0D)
+    
+    

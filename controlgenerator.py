@@ -28,10 +28,11 @@ class ControlGeneratorAPI:
         #combined_kwl is a list of three lists, where each list the combined tweets for
         #that specific window
         interact_proportions = []
+        attack_sequences = []
         for i in range(3):
             interact_proportions.append(self._find_interaction_proportions(combined_kwl[i]))
         for i in range(3):
-            attack_sequences = self._generate_attack_sequence(sent_proportions[i],interact_proportions[i], 10)
+            attack_sequences.append(self._generate_attack_sequence(sent_proportions[i],interact_proportions[i], 10))
         return attack_sequences
 
     def _get_attacker(self, order_list):
@@ -50,18 +51,18 @@ class ControlGeneratorAPI:
         order_list += ['B'] * int(math.floor(100 * sent_proportions[1]))
         
         #the different kinds of attacks
-        attack0 = 0 
-        attack1 = 1
-        attack2 = 2
-        attack3 = 3
-        attack4 = 4
-        attack5 = 5
-        attack6 = 6
-        attack7 = 7
-        attack8 = 8
-        attack9 = 9
-        attack10 = 10
-        attack11 = 11
+        attack0 = '0' 
+        attack1 = '1'
+        attack2 = '2'
+        attack3 = '3'
+        attack4 = '4'
+        attack5 = '5'
+        attack6 = '6'
+        attack7 = '7'
+        attack8 = '8'
+        attack9 = '9'
+        attack10 = '10'
+        attack11 = '11'
 
         #the different classes of attacks
         class0 = [attack4, attack5]
@@ -156,4 +157,7 @@ class ControlGeneratorAPI:
 tweet_fighter = TweetFighter('F6krcMh2bSdFEWiwCO5BFoNnO', 'myQxPYEA3MHEbl3S7CfmZqg9kuMrISYeGJsmYToRK6LSKiejNP', 'levi@roxsoftware.com')
 results = tweet_fighter.tweet_fight("Cubs", "Mets")
 generator = ControlGeneratorAPI(results[0], results[1])
-print generator.generate_attack_sequences()
+attacks = generator.generate_attack_sequences()
+print ''.join(attacks[0])
+print ''.join(attacks[1])
+print ''.join(attacks[2])

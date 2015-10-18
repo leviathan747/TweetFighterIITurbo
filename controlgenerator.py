@@ -47,20 +47,20 @@ class ControlGeneratorAPI:
     def _generate_attack_sequence(self, sent_proportions, interact_proportions, num):
         attack_sequence = []
         #generate the weighted list to choice the order from
-        order_list = ['A'] * int(math.floor(100 * sent_proportions[0]))
-        order_list += ['B'] * int(math.floor(100 * sent_proportions[1]))
+        order_list = ['a'] * int(math.floor(100 * sent_proportions[0]))
+        order_list += ['b'] * int(math.floor(100 * sent_proportions[1]))
         
         #the different kinds of attacks
-        attack0 = '0' 
-        attack1 = '1'
-        attack2 = '2'
-        attack3 = '3'
-        attack4 = '4'
-        attack5 = '5'
-        attack6 = '6'
-        attack7 = '7'
-        attack8 = '8'
-        attack9 = '9'
+        attack0 = '00' 
+        attack1 = '01'
+        attack2 = '02'
+        attack3 = '03'
+        attack4 = '04'
+        attack5 = '05'
+        attack6 = '06'
+        attack7 = '07'
+        attack8 = '08'
+        attack9 = '09'
         attack10 = '10'
         attack11 = '11'
 
@@ -158,6 +158,22 @@ tweet_fighter = TweetFighter('F6krcMh2bSdFEWiwCO5BFoNnO', 'myQxPYEA3MHEbl3S7CfmZ
 results = tweet_fighter.tweet_fight("Cubs", "Mets")
 generator = ControlGeneratorAPI(results[0], results[1])
 attacks = generator.generate_attack_sequences()
-print ''.join(attacks[0])
-print ''.join(attacks[1])
-print ''.join(attacks[2])
+attackstr1 = ''.join(attacks[0])
+attackstr2 = ''.join(attacks[1])
+attackstr3 = ''.join(attacks[2])
+
+common = 'C:\\Users\\Kyle Krynski\\Desktop\\snes9x-1.51-rerecording-v7-win32\\Input\\'
+
+f1 = open(common + 'rnd1.txt', 'w')
+f2 = open(common + 'rnd2.txt', 'w')
+f3 = open(common + 'rnd3.txt', 'w')
+
+f1.write(attackstr1)
+f2.write(attackstr2)
+f3.write(attackstr3)
+
+f1.close()
+f2.close()
+f3.close()
+
+

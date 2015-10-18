@@ -28,10 +28,11 @@ class ControlGeneratorAPI:
         #combined_kwl is a list of three lists, where each list the combined tweets for
         #that specific window
         interact_proportions = []
+        attack_sequences = []
         for i in range(3):
             interact_proportions.append(self._find_interaction_proportions(combined_kwl[i]))
         for i in range(3):
-            attack_sequences = self._generate_attack_sequence(sent_proportions[i],interact_proportions[i], 10)
+            attack_sequences.append(self._generate_attack_sequence(sent_proportions[i],interact_proportions[i], 10))
         return attack_sequences
 
     def _get_attacker(self, order_list):
@@ -46,22 +47,22 @@ class ControlGeneratorAPI:
     def _generate_attack_sequence(self, sent_proportions, interact_proportions, num):
         attack_sequence = []
         #generate the weighted list to choice the order from
-        order_list = ['A'] * int(math.floor(100 * sent_proportions[0]))
-        order_list += ['B'] * int(math.floor(100 * sent_proportions[1]))
+        order_list = ['a'] * int(math.floor(100 * sent_proportions[0]))
+        order_list += ['b'] * int(math.floor(100 * sent_proportions[1]))
         
         #the different kinds of attacks
-        attack0 = 0 
-        attack1 = 1
-        attack2 = 2
-        attack3 = 3
-        attack4 = 4
-        attack5 = 5
-        attack6 = 6
-        attack7 = 7
-        attack8 = 8
-        attack9 = 9
-        attack10 = 10
-        attack11 = 11
+        attack0 = '00' 
+        attack1 = '01'
+        attack2 = '02'
+        attack3 = '03'
+        attack4 = '04'
+        attack5 = '05'
+        attack6 = '06'
+        attack7 = '07'
+        attack8 = '08'
+        attack9 = '09'
+        attack10 = '10'
+        attack11 = '11'
 
         #the different classes of attacks
         class0 = [attack4, attack5]
@@ -153,7 +154,4 @@ class ControlGeneratorAPI:
         return bucketized_proportions
             
 
-#tweet_fighter = TweetFighter('F6krcMh2bSdFEWiwCO5BFoNnO', 'myQxPYEA3MHEbl3S7CfmZqg9kuMrISYeGJsmYToRK6LSKiejNP', 'levi@roxsoftware.com')
-#results = tweet_fighter.tweet_fight("Cubs", "Mets")
-#generator = ControlGeneratorAPI(results[0], results[1])
-#print generator.generate_attack_sequences()
+

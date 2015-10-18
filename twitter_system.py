@@ -7,11 +7,11 @@ from tweet_fighter import *
 from controlgenerator import *
 
 
-CONSUMER_KEY = "IMhoOLI5hEv2UU1xvskOFMiPy"
-CONSUMER_SECRET = "4QcaLsu04V3ZvaVDtaTbmUqYkKI0B9VuBCoiY1HjgNNuEh54kB"
-ACCESS_KEY = "3982575449-b2oc18sUhI5emOThl2dxqv3whBPzNkbRyMeIGFy"
-ACCESS_SECRET = "XngnYbt98UR5eK0B7y1TRYFebTdkoM8HvlLqMExu2E7hE"
-SENT_APP_ID = "levi@roxsoftware.com"
+CONSUMER_KEY = "blah0"
+CONSUMER_SECRET = "blah1"
+ACCESS_KEY = "blah2"
+ACCESS_SECRET = "blah3"
+SENT_APP_ID = "blah4"
 
 twitter = Twython(CONSUMER_KEY , CONSUMER_SECRET, ACCESS_KEY, ACCESS_SECRET)
 pattern1 = re.compile(r'.*? (.*?) vs (.*?)\. Thanks!')
